@@ -18,4 +18,4 @@ export default function Docs({ params }: Params) {
     return (
         <h1>Docs home page</h1>
     )
-}
+};
