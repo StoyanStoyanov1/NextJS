@@ -1,20 +1,25 @@
+"use client";
+
 import { notFound } from "next/navigation";
+import { use } from "react";
 
 export default function ReviewDetail({
     params,
 }: {
-    params: {
+    params: Promise<{
         productId: string;
         reviewId: string;
-    };
+    }>;
 }) {
+    const { productId, reviewId } = use(params); 
 
-    if(parseInt(params.reviewId) > 1000) {
+    if (parseInt(reviewId) > 1000) {
         notFound();
     }
+
     return (
         <>
-            <h1>Review {params.reviewId} for product {params.productId}</h1>
+            <h1>Review {reviewId} for product {productId}</h1>
         </>
     );
 }
